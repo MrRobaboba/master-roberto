@@ -1,0 +1,153 @@
+:root{
+    --corporativo: rgb(37, 37, 192);
+    --enfasis: rgb(255, 96, 68);
+    --complementario: rgb(133, 133, 22);
+}
+body {
+    margin-top:80px;
+    font-family: 'Catamaran', sans-serif;
+}
+#menu-mobile{
+    display:none;
+}
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: cornflowerblue;
+    text-align: center;
+    font-family: Verdana, Geneva, sans-serif;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    background: #333;
+    display: flex;
+    justify-content: space-evenly;
+}
+nav li a {
+    color: white;
+    display: block;
+    text-decoration: none;
+    padding: .5em 1em;
+}
+nav li a:hover {
+    background: var(--enfasis);
+    color: white;
+}
+#titulo2{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    margin: auto;
+    text-transform: uppercase;
+}
+.titulo-secundario{
+    text-shadow: 1px 1px 6px black;
+}
+.clase1.clase2{
+    border: 2px solid var(--corporativo);
+    margin: auto;
+    padding: 30px;
+    width: 250px;
+    height: 250px;
+    overflow: overlay;
+}
+.clase1 > .clase-subelemento{
+    background:lightskyblue;
+    line-height: 18px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.clase1 > .clase-subelemento-doble{
+    background:lightgreen;
+    font-size: 11px;
+}
+#banner-titulo{
+    background-color: rgba(127,255,212,0.3);
+}
+h1{
+    padding: 200px;
+    font-size: 50px;
+}
+#home .titulo-principal{
+    background: url(/imagenes/seo-tips-1536x768.jpeg) no-repeat fixed;
+    background-size: contain;
+}
+#sobre-mi .titulo-principal{
+    background: url(/imagenes/Ficha-todo-sobre-mi-mama-escritura-blanco-negro.png);
+    background-repeat: repeat-y;
+    background-size: 4em;
+    background-position: right bottom;
+}
+#archivo-carpeta .titulo-principal{
+    background: url(/imagenes/0ef7c24ecd8e72b259732ff00d84cb35-icono-de-carpeta-de-archivo-oficial.png);
+    background-repeat: space;
+}
+#contacto .titulo-principal{
+    background: url(/imagenes/1b0612bca0cd99911b17c88392db70ca-icono-de-contacto-de-soporte-al-cliente.png) no-repeat;
+    background-size: 100px;
+    background-position: top;
+}
+#landing .titulo-principal{
+    background: url(/imagenes/10-tecnicas-con-las-que-diseñar-una-estrategia-de-marketing-digital-01.png);
+    background-size: 100px;
+    background-position: bottom;
+    background-repeat: repeat-x;
+}
+
+/* Selectores CCS Avanzados */
+/* Ejercicio: Haz que los enlaces que apuntan hacia páginas externas sean distinguibles visualmente de los que no */
+
+/* Opción 1 */
+a[target="_blank"]::after{
+    content:" ⭜";
+    color:var(--corporativo);
+}
+
+/* Opción 2 */
+a[href^="https:"]::after{
+    content:" ⭜";
+    color: red;
+}
+
+/* Opción 3. También afecta al mailto en este caso, el código que se muestra en el navegador finalmente es este porque está el último */
+a:not([href^="/"])::after{
+    content:" ⭜";
+    color: var(--complementario);
+}
+
+/* @Media */
+/* Inserta un @media que modifique el CSS de cualquier elemento en tu hoja de estilos para dispositivos que tengan entre 400 y 800 píxeles de ancho */
+
+@media screen and (min-width: 400px) and (max-width: 800px){
+    #menu-desktop{display: none;}
+    #menu-mobile{display: block;}
+    nav ul {
+        flex-direction: column;
+    }
+    h1{
+        padding: 30px;
+    }
+    :is(#home,#sobre-mi,#archivo-carpeta,#contacto,#landing) .titulo-principal{
+        background: none;
+    }
+}
+
+/* Funciones CSS */
+/* Ejercicio: Haz que un elemento tenga de ancho el 100% de su elemento menos 40 píxeles */
+#test-max1{
+    margin:auto;
+    width: calc(100% - 40px);
+}
+
+/* Ejercicio: Añade una función max al ancho de un elemento */
+#test-max2{
+    margin: auto;
+    text-align: justify;
+    width: max(40%, 250px);
+}
+
+/* Ejercicio: Añade 3 colores principales a tu web en el selector root y emplea sus variables. 🠉 */
+
+/* Fuentes CSS */
+/* Ejercicio: Añade la tipografía catamarán en tu página web de la forma mas óptima posible. 🠉 */
